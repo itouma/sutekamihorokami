@@ -4,7 +4,7 @@ class DeviseCreateExhibitions < ActiveRecord::Migration[6.0]
   def change
     create_table :exhibitions do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
+      t.string :email,              null: false, default: "", uniqueness: true
       t.string :encrypted_password, null: false, default: ""
       t.text :company_name,        null: false
       t.text :company_name_kana,    null: false
