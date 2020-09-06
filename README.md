@@ -25,7 +25,7 @@ Things you may want to cover:
 
 # テーブル設計
 
-## users テーブル
+## customers テーブル
 
 | Column            | Type   | Options     |
 | --------          | ------ | ----------- |
@@ -57,11 +57,11 @@ Things you may want to cover:
 | text              | text     | null: false       |
 | department_id     | integer  | null: false       |
 | item_status_id    | integer  | null: false       |
-| user_id           | integer  | not:null,foreign_key: true |
+| customer_id       | integer  | not:null,foreign_key: true |
 | exhibition_id     | integer  | not:null,foreign_key: true |
 
 ### Association
-- belongs_to :user
+- belongs_to :customer
 - has_one_attached :image
 - has_one :purchase
 - belongs_to :exhibition
@@ -75,11 +75,11 @@ Things you may want to cover:
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-|user_id      | integer  | null: false,foreign_key: true  |
+|customer_id  | integer  | null: false,foreign_key: true  |
 |items_id     | integer  | null: false,foreign_key: true  |
 
 ### Association
-- belongs_to :user
+- belongs_to :customer
 - belongs_to :item
 
 ## Exhibitionテーブル
