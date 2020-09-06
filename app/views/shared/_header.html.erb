@@ -11,21 +11,38 @@
   </div>
   <div class='nav'>
     <ul class='lists-left'>
-    
-      <%# deviseを導入できたら、ログインの有無で表示が変わるように分岐させましょう%>
-      <%# <li><%= link_to current_user.nickname, "#", class: "user-nickname" </li> %>
-      <%# <li><%= link_to 'ログアウト', destroy_exhibition_session, method: :delete, class: "logout" </li> %>
-      <li><%= link_to 'ログイン(EX)', new_exhibition_session_path, class: "login-ex" %></li>
-      <li><%= link_to '新規登録(EX)', new_exhibition_registration_path, class: "sign-up-ex" %></li>
-      <%# //deviseを導入できたら、ログインの有無で表示が変わるように分岐させましょう%>
-      </ul>
+      <% if exhibition_signed_in? %>
+        <li>
+          <%= link_to current_user.company_name, "#", class: "login-ex"  %>
+        </li>
+        <li>
+          <%= link_to 'ログアウト', destroy_exhibition_session, method: :delete, class: "sign-up-ex"  %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to 'ログイン(EX)', new_exhibition_session_path, class: "login-ex" %>
+        </li>
+        <li>
+          <%= link_to '新規登録(EX)', new_exhibition_registration_path, class: "sign-up-ex" %>
+        </li>
+      <% end %>
+    </ul>
     <ul class='lists-right'>
-      <%# deviseを導入できたら、ログインの有無で表示が変わるように分岐させましょう%>
-      <%# <li><%= link_to current_user.nickname, "#", class: "user-nickname" </li> %>
-      <%# <li><%= link_to 'ログアウト', destroy_customer_session, method: :delete, class: "logout" </li> %>
-      <li><%= link_to 'ログイン', new_customer_session_path, class: "login" %></li>
-      <li><%= link_to '新規登録', new_customer_registration_path, class: "sign-up" %></li>
-      <%# //deviseを導入できたら、ログインの有無で表示が変わるように分岐させましょう%>
+      <% if customer_signed_in? %>
+        <li>
+          <%= link_to current_user.nickname, "#", class: "user-nickname"%>
+        </li>
+        <li>
+          <%= link_to 'ログアウト', destroy_customer_session, method: :delete, class: "logout" %>
+        </li> 
+      <% else %>
+        <li>
+          <%= link_to 'ログイン', new_customer_session_path, class: "login" %>
+        </li>
+        <li>
+          <%= link_to '新規登録', new_customer_registration_path, class: "sign-up" %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </header>
