@@ -6,6 +6,9 @@ class DeviseCreateExhibitions < ActiveRecord::Migration[6.0]
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
+      t.string :company_name,        null: false, default: ""
+      t.string :company_name_hira,   null: false, default: ""
+      t.string :company_name_kana,    null: false, default: ""
 
       ## Recoverable
       t.string   :reset_password_token
