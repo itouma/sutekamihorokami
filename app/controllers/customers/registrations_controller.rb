@@ -42,7 +42,7 @@ class Customers::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :family_name, :first_name, :family_name_kana, :first_name_kana, :birthday])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :family_name, :first_name, :family_name_kana, :first_name_kana, :birthday, :postal_code, :phone_number, :prefecture_id, :city, :city_number, :building_name])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
