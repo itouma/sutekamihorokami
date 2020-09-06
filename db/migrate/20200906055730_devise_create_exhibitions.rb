@@ -9,6 +9,13 @@ class DeviseCreateExhibitions < ActiveRecord::Migration[6.0]
       t.text :company_name,        null: false
       t.text :company_name_kana,    null: false
 
+      t.string :postal_code,           null: false
+      t.string :phone_number,          null: false
+      t.integer :prefecture_id,         null: false
+      t.string :city,       default: "",null: false
+      t.string :city_number,default: "",null: false
+      t.string :building_name,     default: ""
+
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
