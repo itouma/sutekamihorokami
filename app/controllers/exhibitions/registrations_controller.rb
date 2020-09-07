@@ -2,6 +2,9 @@
 
 class Exhibitions::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
+
+  before_action :move_to_index
+
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
@@ -43,6 +46,13 @@ class Exhibitions::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:company_name, :company_name_kana, :postal_code, :phone_number, :prefecture_id, :city, :city_number, :building_name])
+  end
+
+  def move_to_index
+    if customer_signed_in?
+      #  && @customer.id == current_customer.id 
+      redirect_to root_path
+    end
   end
 
   # If you have extra params to permit, append them to the sanitizer.
