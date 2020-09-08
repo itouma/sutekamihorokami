@@ -188,27 +188,31 @@ a {
 }
 
 .feature-lists {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.feature-lists>.list {
+  // display: flex;
+  // justify-content: space-between;
+  // flex-wrap: wrap;
   width: 33vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-.feature-list-text {
-  font-weight: bold;
-  font-size: 22px;
-  line-height: 50px;
-}
+// .feature-lists>.list {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// }
 
-.feature-list-description {
-  font-size: 18px;
-  margin-top: 20px;
+// .feature-list-text {
+//   font-weight: bold;
+//   font-size: 22px;
+//   line-height: 50px;
+// }
+
+// .feature-list-description {
+//   font-size: 18px;
+//   margin-top: 20px;
+// }
+
+#map{
+  height: 400px;
 }
 
 /* //FURIMAの特徴 */
