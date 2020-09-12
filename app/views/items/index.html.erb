@@ -86,37 +86,19 @@
   <%# FURIMAの特徴 %>
   <div class='feature-contents'>
     <h2 class='title'>
-      FURIMAの特徴
+      近隣MAP
     </h2>
-    <ul class='feature-lists'>
-      <li class='list'>
-        <%= image_tag "furima-intro04.png", class:"list-pict" %>
-        <h3 class='feature-list-text'>
-          簡単に売り買いできる
-        </h3>
-        <p class='feature-list-description'>
-          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
-        </p>
-      </li>
-      <li class='list'>
-        <%= image_tag "furima-intro05.png", class:"list-pict" %>
-        <h3 class='feature-list-text'>
-          売上金は即日振込みに対応
-        </h3>
-        <p class='feature-list-description'>
-          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします。
-        </p>
-      </li>
-      <li class='list'>
-        <%= image_tag "furima-intro06.png", class:"list-pict" %>
-        <h3 class='feature-list-text'>
-          様々な支払いに対応
-        </h3>
-        <p class='feature-list-description'>
-          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
-        </p>
-      </li>
-    </ul>
+    <%#<ul class='feature-lists'>%>
+    <!-- 地名入力用のinputを追加 -->
+    <input id="address" type="textbox" value="東京都江戸川区平井7丁目">
+
+    <!-- buttonをクリックしたらcodeAddressを実行-->
+    <input type="button" value="Encode" onclick="codeAddress()">
+    <div id='map'></div>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap" async defer></script>
+
+    <%#</ul>%>
   </div>
   <%# //FURIMAの特徴 %>
 
@@ -187,3 +169,34 @@
   </a>
 </div>
 <%= render "shared/footer" %>
+
+
+
+
+      <%#92<li class='list'>
+        <%= image_tag "furima-intro04.png", class:"list-pict" %>
+        <%#<h3 class='feature-list-text'>
+          簡単に売り買いできる
+        </h3>
+        <p class='feature-list-description'>
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+        </p>
+      </li>
+      <li class='list'>
+        <%= image_tag "furima-intro05.png", class:"list-pict" %>
+        <%#<h3 class='feature-list-text'>
+          売上金は即日振込みに対応
+        </h3>
+        <p class='feature-list-description'>
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします。
+        </p>
+      </li>
+      <li class='list'>
+        <%= image_tag "furima-intro06.png", class:"list-pict" %>
+        <%#<h3 class='feature-list-text'>
+          様々な支払いに対応
+        </h3>
+        <p class='feature-list-description'>
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+        </p>
+      </li>
