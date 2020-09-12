@@ -5,26 +5,28 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+4.times do |n|
+  Exhibition.create!(
+    email: "#{n}@#{n}",
+    company_name: "株式会社テスト#{n}",
+    password: "aaaaaa#{n}",
+    encrypted_password: "aaaaaa#{n}",
+    company_name_kana: 'カブシキガイシャテスト',
+    postal_code: '222-2222',
+    phone_number: '22222222222',
+    prefecture_id: '23',
+    city: '名古屋',
+    city_number: 'ポッカサッポロ',
+    building_name: 'サントリー'
+  )
+end
 
-Exhibition.create!(
-  email: '2@2',
-  company_name: '株式会社テスト2',
-  password: '222222q',
-  encrypted_password: '222222q',
-  company_name_kana: 'カブシキガイシャテスト',
-  postal_code: '222-2222',
-  phone_number: '22222222222',
-  prefecture_id: '23',
-  city: '名古屋',
-  city_number: 'ポッカサッポロ',
-  building_name: 'サントリー'
-)
-
+4.times do |n|
   Customer.create!(
-    email: 's@s',
-    nickname: 'テスト太郎',
-    password: 'ssssss1',
-    encrypted_password: 'ssssss1',
+    email: "q@q#{n}",
+    nickname: "test太郎#{n}",
+    password: "qqqqqq#{n}",
+    encrypted_password: "qqqqqq#{n}",
     family_name: 'クァ',
     first_name: 'クァ',
     family_name_kana: 'クァ',
@@ -37,3 +39,41 @@ Exhibition.create!(
     city_number: '海域',
     building_name: 'エンピツ'
   )
+end
+
+Item.create!(
+  [
+    {
+      name: 'ネギ1',
+      price: '334',
+      text: 'まがりネギです',
+      category_id: '2',
+      item_status_id: '1', 
+      exhibition_id: '2'
+    },
+    {
+      name: 'コーヒー',
+      price: '500',
+      text: 'ドトール',
+      category_id: '5',
+      item_status_id: '4',
+      exhibition_id: '1' 
+    },
+    {
+      name: 'ノート',
+      price: '700',
+      text: 'campus',
+      category_id: '1',
+      item_status_id: '2',
+      exhibition_id: '3' 
+    },
+    {
+      name: 'カップ',
+      price: '3300',
+      text: 'ビンテージ物です',
+      category_id: '4',
+      item_status_id: '4',
+      exhibition_id: '4' 
+    }
+  ] 
+)
