@@ -1,5 +1,9 @@
 class ItemsController < ApplicationController
-  skip_before_action :authenticate_customer!, only: [:index, :show]
+  # before_action :authenticate_customer!
+  # skip_before_action :authenticate_customer!, only: [:index, :show]
+
+  before_action :authenticate_exhibition!
+  skip_before_action :authenticate_exhibition!, only: [:index, :show]
   # before_action :move_to_index, except: [:index, :show]
   #customer!もindexとshowと購入しかできないようにしたいから制限したいあっちで設定
 

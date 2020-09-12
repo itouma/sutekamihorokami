@@ -10,7 +10,7 @@
     email: "#{n}@#{n}",
     company_name: "株式会社テスト#{n}",
     password: "aaaaaa#{n}",
-    encrypted_password: "aaaaaa#{n}",
+    # encrypted_password: "aaaaaa#{n}",
     company_name_kana: 'カブシキガイシャテスト',
     postal_code: '222-2222',
     phone_number: '22222222222',
@@ -26,7 +26,7 @@ end
     email: "q@q#{n}",
     nickname: "test太郎#{n}",
     password: "qqqqqq#{n}",
-    encrypted_password: "qqqqqq#{n}",
+    # encrypted_password: "qqqqqq#{n}",
     family_name: 'クァ',
     first_name: 'クァ',
     family_name_kana: 'クァ',
@@ -76,4 +76,8 @@ Item.create!(
       exhibition_id: '4' 
     }
   ] 
+)
+Purchase.create!(
+  customer_id: '2',
+  item_id: '2'
 )
