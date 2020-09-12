@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   # before_action :authenticate_customer!
   # skip_before_action :authenticate_customer!, only: [:index, :show]
-
   before_action :authenticate_exhibition!
   skip_before_action :authenticate_exhibition!, only: [:index, :show]
   # before_action :move_to_index, except: [:index, :show]
@@ -11,8 +10,9 @@ class ItemsController < ApplicationController
     @items = Item.order('created_at DESC')
   end
 
-
-
+  def new
+    @item = Item.new
+  end
   private
 
   # def move_to_index
