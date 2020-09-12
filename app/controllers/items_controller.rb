@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   #customer!もindexとshowと購入しかできないようにしたいから制限したいあっちで設定
 
   def index
+    @items = Item.order('created_at DESC')
   end
 
 
