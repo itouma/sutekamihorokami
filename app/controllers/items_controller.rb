@@ -13,12 +13,17 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
   end
+  
   private
 
   # def move_to_index
   #   if customer_signed_in? && @customer.id == current_customer.id 
   #     redirect_to action: :index
   #   end
+  # end
+
+  # def item_params
+  #   params.require(:item).permit(:name, :text, :category_id, :price, :exhibition_id, :item_status_id,:cost, :weight)
   # end
 
 end
