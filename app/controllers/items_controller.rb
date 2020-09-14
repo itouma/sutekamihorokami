@@ -14,6 +14,17 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
   
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      binding.pry
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
+
   private
 
   # def move_to_index
@@ -22,8 +33,8 @@ class ItemsController < ApplicationController
   #   end
   # end
 
-  # def item_params
-  #   params.require(:item).permit(:image, :name, :text, :category_id, :price, :exhibition_id, :item_status_id,:cost, :weight)
-  # end
+  def item_params
+    params.require(:item).permit(:image, :name, :text, :category_id, :price, :exhibition_id, :item_status_id,:cost, :weight).merge(exhibition_id: current_exhibition.id)
+  end
 
 end
