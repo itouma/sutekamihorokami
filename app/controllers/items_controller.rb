@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   # before_action :authenticate_customer!
   # skip_before_action :authenticate_customer!, only: [:index, :show]
-
   before_action :authenticate_exhibition!
   skip_before_action :authenticate_exhibition!, only: [:index, :show]
   # before_action :move_to_index, except: [:index, :show]
@@ -11,6 +10,18 @@ class ItemsController < ApplicationController
     @items = Item.order('created_at DESC')
   end
 
+  def new
+    @item = Item.new
+  end
+  
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
 
 
   private
@@ -20,5 +31,9 @@ class ItemsController < ApplicationController
   #     redirect_to action: :index
   #   end
   # end
+
+  def item_params
+    params.require(:item).permit(:image, :name, :text, :category_id, :price, :exhibition_id, :item_status_id,:cost, :weight).merge(exhibition_id: current_exhibition.id)
+  end
 
 end
