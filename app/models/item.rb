@@ -12,7 +12,7 @@ class Item < ApplicationRecord
     validates :text, length: {maximum: 100}
     validates :category, :item_status
     with_options numericality: true do
-      validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 50, less_than_or_equal_to: 999_999, message: :'Out of setting range' }
+      validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 50, less_than_or_equal_to: 99_999, message: :'Out of setting range' }
     end
   end
   with_options numericality: { other_than: 0 } do
@@ -21,6 +21,6 @@ class Item < ApplicationRecord
     validates :exhibition_id
   end
   validates :weight, numericality: {greater_than_or_equal_to: 0.1,less_than_or_equal_to: 15}
-  validates :cost, numericality: {greater_than_or_equal_to:1, less_than_or_equal_to:1_000_000}
+  validates :cost, numericality: {greater_than_or_equal_to:1, less_than_or_equal_to:100_000}
 
 end
