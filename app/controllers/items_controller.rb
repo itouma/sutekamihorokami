@@ -24,6 +24,19 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+  end
+
+
+
+  def destroy
+    if exhibition_signed_in? &&current_exhibition.id == @item.exhibition.id
+      @item.delete
+      redirect_to root_path
+    else
+      render :show
+    end
+  end
 
   private
 
