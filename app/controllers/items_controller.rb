@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   skip_before_action :authenticate_exhibition!, only: [:index, :show]
   # before_action :move_to_index, except: [:index, :show]
   #customer!もindexとshowと購入しかできないようにしたいから制限したいあっちで設定
+  before_action :set_item, only: [:show, :destroy, :edit, :update]
 
   def index
     @items = Item.order('created_at DESC')
@@ -34,6 +35,10 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:image, :name, :text, :category_id, :price, :exhibition_id, :item_status_id,:cost, :weight).merge(exhibition_id: current_exhibition.id)
+  end
+
+  def set_item
+    @item =Item.find(params[:id])
   end
 
 end
