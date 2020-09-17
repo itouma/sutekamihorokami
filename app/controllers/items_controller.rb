@@ -24,10 +24,19 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
+  def edit
   end
 
+  def update
+    if exhibition_signed_in? &&current_exhibition.id == @item.exhibition.id && @item.update(item_params)
+      redirect_to root_path      
+    else
+      render :edit
+    end
+  end
 
+  def show
+  end
 
   def destroy
     if exhibition_signed_in? &&current_exhibition.id == @item.exhibition.id
