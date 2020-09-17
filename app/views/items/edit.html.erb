@@ -7,10 +7,10 @@ app/assets/stylesheets/items/new.css %>
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
-    <%= form_with local: true do |f| %>
+    <%= form_with model:@item, method: :patch, local: true do |f| %>
 
     <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
-    <%# render 'shared/error_messages', model: f.object %>
+    <%= render 'shared/error_messages', model: f.object %>
     <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
 
     <%# 出品画像 %>
@@ -65,17 +65,17 @@ app/assets/stylesheets/items/new.css %>
     <%# 販売価格 %>
     <div class="sell-price">
       <div class="weight-bold-text question-text">
-        <span>販売価格<br>(¥300〜9,999,999)</span>
+        <span>販売価格<br>(¥50〜99,999)</span>
         <a class="question" href="#">?</a>
       </div>
       <div>
         <div class="price-content">
           <div class="price-text">
-            <span>価格</span>
+            <span>価格(税込)</span>
             <span class="indispensable">必須</span>
           </div>
           <span class="sell-yen">¥</span>
-          <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）300" %>
+          <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）300" ,maxlength:"7"%>
         </div>
         <div class="price-content">
           <span>販売手数料 (10%)</span>
@@ -87,13 +87,13 @@ app/assets/stylesheets/items/new.css %>
           <span>販売利益</span>
           <span>
             <span id='profit'></span>円
-          </span>
+        </span>
         </div>
       </div>
     </div>
     <%# /販売価格 %>
 
-        <%# その他 %>
+    <%# その他 %>
     <div class="sell-price">
       <div class="weight-bold-text question-text">
         <span>その他<br>元値は購入者には見せない仕様となっております</span>
@@ -105,7 +105,7 @@ app/assets/stylesheets/items/new.css %>
             <span class="indispensablenini">任意</span>
           </div>
           <span class="sell-yen">¥</span>
-          <%= f.text_field :cost, class:"price-input", id:"item-cost", placeholder:"例）300" %>
+          <%= f.text_field :cost, class:"price-input", id:"item-cost", placeholder:"例）300" ,maxlength:"7"%>
         </div>
         <div class="price-content">
           <div class="price-text">
@@ -113,7 +113,7 @@ app/assets/stylesheets/items/new.css %>
             <span class="indispensablenini">任意</span>
           </div>
           <span class="sell-yen">kg</span>
-          <%= f.text_field :weight, class:"price-input", id:"item-price", placeholder:"例0.1〜11" %>
+          <%= f.text_field :weight, class:"price-input", id:"item-price", placeholder:"例0.1〜15" ,maxlength:"7"%>
         </div>
       </div>
     </div>
@@ -141,7 +141,7 @@ app/assets/stylesheets/items/new.css %>
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
       <%= f.submit "変更する" ,class:"sell-btn" %>
-      <%=link_to 'もどる', "#", class:"back-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
   </div>
