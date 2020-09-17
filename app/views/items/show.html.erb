@@ -27,22 +27,22 @@
       <%= link_to '商品の編集', edit_item_path, method: :get, class: "item-red-btn" %>
       <p class='or-text'>or</p>
       <%= link_to '削除', item_path, method: :delete, class:'item-destroy' %>
-     <% elsif !exhibition_signed_in? && !@item.purchase.present? %>
+    <% elsif !exhibition_signed_in? && !@item.purchase.present? %>
 
       <%= link_to '購入画面に進む', item_purchases_path(@item.id) ,class:"item-red-btn"%>
     <% end %>
-    <%# //商品が売れていない場合はこちらを表示しましょう %>
-
-    <%# // ログインしているユーザと出品しているユーザが同一人物である時、商品の編集と削除を表示にしましょう %>
 
     <div class="item-explain-box">
-      <span><%= "商品説明" %></span>
+      <div>  商品説明 </div>
+      <span><%= @item.text %></span>
     </div>
     <table class="detail-table">
       <tbody>
         <tr>
           <th class="detail-item">出品者</th>
-          <td class="detail-value"><%= @item.exhibition.company_name %></td>
+          <td class="detail-value">
+          <%#= link_to @item.exhibition.company_name, exhibitions_path, method: :get%>
+           <%= @item.exhibition.company_name %></td>
         </tr>
         <tr>
           <th class="detail-item">出品住所</th>
@@ -67,10 +67,11 @@
         <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
         <span>お気に入り 0</span>
       </div>
+      <%#
       <div class="report-btn">
-        <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+        <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%><%#
         <span>不適切な商品の通報</span>
-      </div>
+      </div> %>
     </div>
   </div>
   <%# /商品の概要 %>
