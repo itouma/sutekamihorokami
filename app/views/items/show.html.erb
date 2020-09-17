@@ -9,11 +9,11 @@
     <div class='item-img-content'>
       <%= image_tag @item.image,class:"item-box-img" if @item.image.attached? %>
 
-      <% if @item.purchase.present? %>
-      <div class='sold-out'>
-        <span>Sold Out!!</span>
-      </div>
-      <% end %>
+        <% if @item.purchase.present? %>
+          <div class='sold-out'>
+            <span>Sold Out!!</span>
+          </div>
+        <% end %>
 
     </div>
     <div class="item-price-box">
@@ -22,7 +22,7 @@
       </span>
     </div>
 
-    <%# ログインしているユーザと出品しているユーザが同一人物である時、商品の編集と削除を表示にしましょう%>
+    <%# ログインしているユーザと出品しているユーザが同一人物である時、商品の編集と削除を表示%>
     <% if exhibition_signed_in? &&current_exhibition.id == @item.exhibition.id %>
       <%= link_to '商品の編集', edit_item_path, method: :get, class: "item-red-btn" %>
       <p class='or-text'>or</p>
