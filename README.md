@@ -49,6 +49,7 @@ Things you may want to cover:
 - has_many :items
 - has_many :purchases
 
+
 ## items テーブル
 
 | Column            | Type     | Options           |
@@ -66,6 +67,7 @@ Things you may want to cover:
 - has_one :purchase
 - belongs_to :exhibition
 
+
 ## image テーブル
 | Column  | Type       | Options          |
 | ------  | ---------- | ---------------- |
@@ -81,6 +83,8 @@ Things you may want to cover:
 ### Association
 - belongs_to :customer
 - belongs_to :item
+- has_one :detail
+
 
 ## Exhibitionテーブル
 | Column            | Type   | Options     |
@@ -99,3 +103,14 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
+
+
+## details テーブル
+
+| Column            | Type     | Options           |
+| ------            | ------   | -----------       |
+| detailday         | date     | null: false |
+| purchase_id     | integer  | not:null,foreign_key: true |
+
+### Association
+- belongs_to :purchase
