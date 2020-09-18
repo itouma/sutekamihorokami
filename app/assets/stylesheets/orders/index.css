@@ -93,6 +93,12 @@
   font-weight: bold;
   font-size: 20px;
 }
+.uketori {
+  text-align: center;
+  background: #ea352d;
+  color: #fff;
+  font-size: 20px;
+}
 
 .available-card {
   display: flex;
