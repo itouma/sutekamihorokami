@@ -1,6 +1,6 @@
 class PurchaseDetail
   include ActiveModel::Model
-  attr_accessor :item_id, :customer, :deatailday, :token
+  attr_accessor :item_id, :customer_id, :deatailday, :token
 
   with_options presence: true do
     validates :token
