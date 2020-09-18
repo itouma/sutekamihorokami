@@ -1,7 +1,8 @@
 class PurchasesController < ApplicationController
-  before_action :set_item, only: [:index, :show, :destroy, :edit, :update]
+  # before_action :authenticate_customer!
+  before_action :set_item, only: [:index, :create,:show,]
   def index
-    @detail =Purchase.new
+    @detail =PurchaseDetail.new
     # binding.pry
   end
 
@@ -10,7 +11,8 @@ class PurchasesController < ApplicationController
   # end
 
   def create
-    @detail =Purchase.create(detail_params)
+    @detail =PurchaseDetail.new(detail_params)
+    @donation.save
   end
 
   private
@@ -19,8 +21,8 @@ class PurchasesController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 
-  
   def detail_params
-    params.require(:purchase).permit(:item, :customer)
+    params.require(:purchase_detail).permit(:deatailday).merge(customer_id:current_customer.id, item_id: @item.id,token: params[:token])
+    
   end
 end

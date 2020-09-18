@@ -14,7 +14,5 @@ class PurchaseDetail
     purchase = Purchase.create(customer_id: customer_id, item_id: item_id)
 
     Detail.create(deatailday: deatailday,purchase_id: purchase.id)
-
-    
   end
 end
