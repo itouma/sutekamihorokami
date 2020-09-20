@@ -9,6 +9,9 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.order('created_at DESC')
+    if customer_signed_in?
+      @customer_address =(current_customer.prefecture.name)+ (current_customer.city)+ (current_customer.city_number)+ (current_customer.building_name)
+    end
   end
 
   def new
