@@ -9,8 +9,14 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.order('created_at DESC')
+    # gon.exhibition = current_exhibition
+    # gon.customer = current_customer
     if customer_signed_in?
-      @customer_address =(current_customer.prefecture.name)+ (current_customer.city)+ (current_customer.city_number)+ (current_customer.building_name)
+      gon.user = current_customer
+    elsif exhibition_signed_in?
+      gon.user = current_exhibition
+    else
+      gon.user = Customer.new(latitude: 35.681236, longitude: 139.767125)
     end
   end
 

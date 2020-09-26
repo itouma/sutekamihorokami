@@ -90,18 +90,14 @@
     </h2>
     <%#<ul class='feature-lists'>%>
     <!-- 地名入力用のinputを追加 -->
-    <% if customer_signed_in? %>
-      <input id="customer_address" type="hidden" value=<%= @customer_address%>>
-      <input id="address" type="textbox" value=<%= ""%>>
-    <% else %>
-      <input id="address" type="textbox" value="" >
-    <% end %>
+
+    <input id="address" type="textbox" value="" >
 
     <!-- buttonをクリックしたらcodeAddressを実行-->
-    <input type="button" value="Encode" onclick="codeAddress()">
+    <input type="button" value="検索" onclick="codeAddress()">
     <div id='map'></div>
-    
-    <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap" async defer></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GMAP_API_KEY']%>&callback=initMap" async defer></script>
 
     <%#</ul>%>
   </div>

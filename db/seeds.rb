@@ -15,7 +15,7 @@
     postal_code: '222-2222',
     phone_number: '22222222222',
     prefecture_id: '23',
-    city: '名古屋',
+    city: "東京都江戸川区平井#{n}丁目#{n}番",
     city_number: 'ポッカサッポロ',
     building_name: 'サントリー'
   )
@@ -35,9 +35,7 @@ end
     postal_code: '111-1111',
     phone_number: '11111111111',
     prefecture_id: '36',
-    city: '川崎',
-    city_number: '海域',
-    building_name: 'エンピツ'
+    city: "東京都江戸川区平井#{n}丁目",
   )
 end
 

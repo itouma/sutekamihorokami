@@ -8,6 +8,8 @@ class Exhibition < ApplicationRecord
   KATAKANA_REGEX = /\A[ァ-ヶー－]+\z/.freeze
   # 全角カタカナのみ
 
+  geocoded_by :city
+  after_validation :geocode
 
   with_options presence: true do
     validates :company_name
@@ -16,7 +18,6 @@ class Exhibition < ApplicationRecord
     validates :phone_number, format:
     { with: /\A[0-9]{,11}\z/, message: 'is invalid. Include hyphen(-)' }, length: { maximum: 11 }
     validates :city
-    validates :city_number
   end
   with_options presence: { message: 'Select' } do
     validates :prefecture_id, numericality: { greater_than: 0, message: 'Select' }
