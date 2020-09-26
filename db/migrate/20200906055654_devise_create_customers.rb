@@ -17,8 +17,6 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.0]
       t.string :phone_number,          null: false
       t.integer :prefecture_id,         null: false
       t.string :city,       default: "",null: false
-      t.string :city_number,default: "",null: false
-      t.string :building_name,     default: ""
 
       ## Recoverable
       t.string   :reset_password_token
