@@ -1,7 +1,7 @@
 let map;
-let exhibition = gon.exhibition
-let customer =gon.customer
-let user =gon.user
+// let exhibition = gon.exhibition;
+// let customer =gon.customer;
+// let user =gon.user;
 
 function initMap() {
   geocoder = new google.maps.Geocoder()
@@ -9,8 +9,8 @@ function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     // コントローラーで定義した変数から緯度経度を呼び出し、マップの中心に表示
       center: {
-        lat: user.latitude, 
-        lng: user.longitude
+        lat: gon.user.latitude, 
+        lng: gon.user.longitude
       },
     zoom: 16,
   });
@@ -18,8 +18,8 @@ function initMap() {
   marker = new google.maps.Marker({
     // コントローラーで定義した変数から緯度経度を呼び出し、マーカーを立てる
     position: {
-      lat: user.latitude,
-      lng: user.longitude
+      lat: gon.user.latitude,
+      lng: gon.user.longitude
     },
     map: map
   });

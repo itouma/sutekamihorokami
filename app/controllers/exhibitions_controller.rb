@@ -4,8 +4,10 @@ class ExhibitionsController < ApplicationController
   def show
     # @items = Item.order('created_at DESC').includes(:exhibition)
     @items = @exhibition.items
+    # binding.pry
     # current_user.nickname
     # @tweets = current_user.tweets
+    gon.user = @exhibition
   end
 
   # @exhibition 
