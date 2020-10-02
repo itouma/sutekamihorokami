@@ -16,7 +16,7 @@
 ##購入画面(購入者ユーザーログイン時のみ可能)　　
 <img width="596" alt="62774502d20a2b2f13e6689198f2ce69" src="https://user-images.githubusercontent.com/68621609/94909705-8aa12700-04de-11eb-83b1-7ab9c0baec65.png">
 
-##出品者(企業)の詳細ページ
+##出品者(企業)の詳細ページ(この場合は出品者が登録した住所を表示)
 ![ddb3fdfa9d4a30fbddf1f8f7193f962f](https://user-images.githubusercontent.com/68621609/94910993-6e9e8500-04e0-11eb-9141-f7f228dc10a1.gif)
 出品者(企業)がログインした場合のみ売価変更率表示
 ![d11a8bf7866aa3b9c752d2ff377f34a7](https://user-images.githubusercontent.com/68621609/94910846-3a2ac900-04e0-11eb-805c-a506b8103ef7.jpg)
