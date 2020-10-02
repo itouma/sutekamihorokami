@@ -4,7 +4,7 @@
 ## TOPページ
 ![9b7782e449fad91104780ec4d239b25b](https://user-images.githubusercontent.com/68621609/94906012-bf11e480-04d8-11eb-9e7f-7eb6a899b636.gif)
 
-## TOPページMAP(ユーザーが登録した住所から)
+## TOPページMAP(ユーザーが登録した住所から、未ログインだったら東京駅が中心になる)
 <img width="1251" alt="b4f68a219af1afa4a69948a337008724-2" src="https://user-images.githubusercontent.com/68621609/94909427-1a92a100-04de-11eb-8081-f5daf5a9dcc9.png">
 
 ## TOP(商品一覧)ページ
