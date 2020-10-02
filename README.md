@@ -35,7 +35,7 @@
 
 # テーブル設計
 
-## customers テーブル
+## customers(購入者) テーブル
 
 | Column            | Type   | Options     |
 | --------          | ------ | ----------- |
@@ -60,7 +60,7 @@
 - has_many :purchases
 
 
-## items テーブル
+## items(出品商品) テーブル
 
 | Column            | Type     | Options           |
 | ------            | ------   | -----------       |
@@ -83,7 +83,7 @@
 | ------  | ---------- | ---------------- |
 |  image  | text       |  null: false     |
 
-## purchases テーブル
+## purchases(取引) テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
@@ -96,7 +96,7 @@
 - has_one :detail
 
 
-## Exhibitionテーブル
+## Exhibition(出品者お店)テーブル
 | Column            | Type   | Options     |
 | --------          | ------ | ----------- |
 | company_name      | text   | null: false |
@@ -115,7 +115,7 @@
 - has_many :items
 
 
-## details テーブル
+## details(受け取り日) テーブル
 
 | Column            | Type     | Options           |
 | ------            | ------   | -----------       |
