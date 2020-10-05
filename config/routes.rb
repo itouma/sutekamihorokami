@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :exhibitions, controllers: {sessions: 'exhibitions/sessions', passwords: 'exhibitions/passwords', registrations: 'exhibitions/registrations',
    }
-  resources :exhibitions, only: :index
+  resources :exhibitions, only: [:index, :show]
 
   devise_for :customers, controllers: {sessions: 'customers/sessions', passwords: 'customers/passwords', registrations: 'customers/registrations' }
   
