@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :destroy, :edit, :update]
 
   def index
-    @items = Item.order('created_at DESC')
+    @items = Item.order('created_at DESC').includes(:exhibition)
     # gon.exhibition = current_exhibition
     # gon.customer = current_customer
     if customer_signed_in?

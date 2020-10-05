@@ -1,0 +1,128 @@
+<%= render "shared/third-header"%>
+<div class='main'>
+
+  <%# 企業ごとに異なるページ %>
+  <div class='exhibitions'>
+    <h2 class='service-title'>
+
+      <%= @exhibition.company_name %>
+    </h2>
+    <p class='service-explain'>
+      
+      <%= @exhibition.company_name %>
+      が抑えた食品ロスは現在
+      
+      <%array = []%>
+        <% @items.each do |item| %>
+          <% if item.purchase %>
+            <% array << item.weight.to_f %>
+          <% end %>
+        <% end %>
+      <%= array.sum%>kg
+      
+    </p>
+    <% if exhibition_signed_in? && current_exhibition.id == @exhibition.id %>
+      <p class='service-explain'>
+          全ての商品が売れた場合の売価変更額
+          <h1>
+          <%total_cost = []%>
+          <%total_price = []%>
+            <% @items.each do |item| %>
+              <%# if !item.purchase %>
+               <% total_price << item.price.to_i %>
+              <%# end %>
+               <% total_cost << item.cost.to_i %>
+            <% end %>
+          <p>売価変更後の総売価
+          <%= total_price.sum%>円
+          </p>
+          <p>売価変更前の総売価
+          <%= total_cost.sum%>円
+          </p>
+          </p>
+          <p>売価変更率
+          <%= ((total_price.sum.to_f)/(total_cost.sum.to_f)).round(2)%>％
+          </p>
+          </h1>
+      </p>
+    <% end %>
+
+  </div>
+  <%# //企業ごとに異なるページ  %>
+
+  <%# <GOOGLE MAP> %>
+  <div class='feature-contents'>
+    <h2 class='title'>
+      近隣MAP
+    </h2>
+    <%#<ul class='feature-lists'>%>
+    <!-- 地名入力用のinputを追加 -->
+
+    <input id="address" type="textbox" value="" >
+
+    <!-- buttonをクリックしたらcodeAddressを実行-->
+    <input type="button" value="検索" onclick="codeAddress()">
+    <div id='map'></div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GMAP_API_KEY']%>&callback=initMap" async defer></script>
+
+    <%#</ul>%>
+  </div>
+  <%# //GOOGLE MAP %>
+
+  <%# 出品一覧 %>
+  <div class='item-contents'>
+    <h2 class='title'>出品商品一覧</h2>
+    <ul class='item-lists'>
+      <% if  @items.present? %> 
+        <% @items.each do |item| %>
+          <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
+          <li class='list'>
+            <%= link_to item_path(item.id) do %>
+              <div class='item-img-content'>
+                <%= image_tag item.image, class: "item-img" if item.image.attached? %>
+
+                <%# 売れていればsold outの表示 %>
+                <% if item.purchase.present? %>
+                  <div class='sold-out'>
+                    <span>Sold Out!!</span>
+                  </div>
+                <% end %>
+                <%# //売れていればsold outの表示 %>
+                
+              </div>
+              <div class='item-info'>
+                <h3 class='item-name'>
+                  <%= item.name %>
+                </h3>
+                <div class='item-price'>
+                  <span><%= item.price %>円<br>(税込み)</span>
+                  <div class='star-btn'>
+                    <span class='star-count'><%= item.exhibition.city%></span>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </li>
+        <%end%>
+          <%# 出品ない場合 %>
+      <% else %>
+        <h2 style="color:red" >現在出品している商品はございません</h2>
+      <% end %>
+              <%# //出品ない場合 %>
+    </ul>
+  </div>
+  <%# //出品一覧 %>
+</div>
+<% if exhibition_signed_in? && !customer_signed_in? %>
+  <a href="/items/new" >
+    <div class='purchase-btn'>
+      <span class='purchase-btn-text'>出品する</span>
+        <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+    </div>
+  </a>
+<% end %>
+
+<div class='footer'>
+  <p>© MOTTAINAI</p>
+</div>

@@ -9,7 +9,22 @@ a {
 /* 画面上部の「人生を変えるフリマアプリ」帯部分 */
 .title-contents {
   width: 100vw;
-  background-image: image-url('furima-header01.png');
+  background-image: image-url('mottainai-header01.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5vh 15vw;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+}
+
+.exhibitions {
+  width: 100vw;
+  background-image: image-url('mottainai-header01.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -23,12 +38,25 @@ a {
 }
 
 .service-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 8vh;
 }
 
 .service-explain {
   font-size: 2.5vh;
-  line-height: 40px;
+  line-height: 30px;
+  color: #f1ed06;;
+  text-shadow: -1px -2px 3px  #000000;
+}
+
+.service-explain-mein {
+  font-size: 4vh;
+  line-height: 20px;
+  color: aqua;;
+  text-shadow: -1px -2px 3px  #000000;
+
 }
 
 .store-btn {
@@ -47,14 +75,14 @@ a {
 
 /* //画面上部の「人生を変えるフリマアプリ」帯部分 */
 
-/* FURIMAが選ばれる3つの理由部分 */
+/* MOTTAINAIが選ばれる3つの理由部分 */
 .select-reason-contents {
   padding: 5vh 15vw;
 }
 
 .select-reason-contents>.title {
   text-align: center;
-  font-size: 3.5vh;
+  font-size: 5vh;
   font-weight: bold;
   margin-bottom: 5vh;
   position: relative;
@@ -62,9 +90,9 @@ a {
 
 .select-reason-contents>.title::after {
   content: '';
-  width: 70px;
+  width: 100px;
   height: 4px;
-  background-color: #3ccace;
+  background-color: fuchsia;
   position: absolute;
   bottom: -10px;
   left: 50%;
@@ -94,12 +122,12 @@ a {
   position: absolute;
   top: 0;
   left: 0;
-  width: 60px;
-  height: 60px;
-  font-size: 30px;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
   text-align: center;
-  line-height: 60px;
-  background-color: #3ccace;
+  line-height: 40px;
+  background-color: #6f3cce;
   color: #fff;
 }
 
@@ -110,7 +138,8 @@ a {
 }
 
 .reason-list-blue-text {
-  color: #3ccace;
+  color: #d4312c;
+  font-weight: bold;
 }
 
 .reason-list-description {
@@ -118,13 +147,13 @@ a {
   margin-top: 20px;
 }
 
-/* //FURIMAが選ばれる3つの理由部分 */
+/* //MOTTAINAIが選ばれる3つの理由部分 */
 
 
 /* 画面中央の「会員数日本一位」帯部分*/
 .ad-contents {
   width: 100vw;
-  background-image: image-url('furima-header02.png');
+  background-image: image-url('mottainai-header02.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -132,7 +161,7 @@ a {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 5vh 15vw;
+  padding: 10vh 15vw;
   color: #fff;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
 }
@@ -163,14 +192,14 @@ a {
 
 /* //画面中央の「会員数日本一位」帯部分 */
 
-/* FURIMAの特徴 */
+/* MOTTAINAIの特徴 */
 .feature-contents {
   padding: 5vh 15vw;
 }
 
 .feature-contents>.title {
   text-align: center;
-  font-size: 3.5vh;
+  font-size: 5vh;
   font-weight: bold;
   margin-bottom: 5vh;
   position: relative;
@@ -180,7 +209,7 @@ a {
   content: '';
   width: 70px;
   height: 4px;
-  background-color: #3ccace;
+  background-color: fuchsia;
   position: absolute;
   bottom: -10px;
   left: 50%;
@@ -215,7 +244,7 @@ a {
   height: 400px;
 }
 
-/* //FURIMAの特徴 */
+/* //MOTTAINAIの特徴 */
 
 /* 商品一覧 */
 
@@ -234,6 +263,14 @@ a {
 }
 
 .item-contents>.subtitle {
+  font-size: 3vh;
+  margin: 1vh 0;
+  text-decoration: none;
+  color: #3ccace;
+  font-weight: bold;
+}
+
+.weight{
   font-size: 3vh;
   margin: 1vh 0;
   text-decoration: none;

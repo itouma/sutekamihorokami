@@ -1,89 +1,94 @@
 <%= render "shared/header" %>
 <div class='main'>
 
-  <%# 画面上部の「人生を変えるフリマアプリ」帯部分 %>
+  <%# 画面上部の「もったいないをなくす」帯部分 %>
   <div class='title-contents'>
     <h2 class='service-title'>
-      人生を変えるフリマアプリ
+      もったいないをなくす
     </h2>
-    <p class='service-explain'>
-      FURIMAはだれでもかんたんに出品・購入できる
+    <p class='service-explain-mein'>
+      『まだ食べれるのに、、、』
     </p>
     <p class='service-explain'>
-      フリマアプリです
+      「在庫はあるのに賞味期限間近だから販売できない、、、」
     </p>
-    <div class='store-btn'>
-      <%= link_to image_tag("https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2011-09-21&kind=iossoftware&bubble=ios_apps", class:"apple-btn"), "#" %>
-      <%= link_to image_tag("dl-android.png", class:"google-btn"), "#" %>
-    </div>
+    <p class='service-explain'>
+      「袋に穴空いたけどすぐテープで塞いだのにな、、、」
+    </p>
+    <p class='service-explain'>
+      「この捨てている時間はなんなのだろうか、、、」
+    </p>
+    <p class='service-explain'>
+      そう思ったお店とお客さまを結び合わせる
+    </p>
+    <p class='service-explain'>
+      そんなアプリです
+    </p>
   </div>
   <%# //画面上部の「人生を変えるフリマアプリ」帯部分  %>
 
-  <%# FURIMAが選ばれる3つの理由部分 %>
+  <%# MOTTAINAIが選ばれる3つの理由部分 %>
   <div class='select-reason-contents'>
     <h2 class='title'>
-      FURIMAが選ばれる3つの理由
+      MOTTAINAIで食資源を大切にしよう
     </h2>
     <ul class='reason-lists'>
       <li class='list'>
-        <%= image_tag "furima-intro01.png", class:"list-pict" %>
+        <%= image_tag "food_syokuhin_haikibutsu.png", class:"list-pict" %>
         <span class='reason-list-number'>1</span>
         <h3 class='reason-list-text'>
-          <span class='reason-list-blue-text'>3分</span>
-          ですぐに出品
+          <span class='reason-list-blue-text'>643万t</span>
+          日本の食品年間ロス
         </h3>
         <p class='reason-list-description'>
-          スマホで入力するだけで簡単に出品できる！
+          アプリを使い資源を大切に使おう！
         </p>
       </li>
       <li class='list'>
-        <%= image_tag "furima-intro02.png", class:"list-pict" %>
+        <%= image_tag "amabie_reji.png", class:"list-pict" %>
         <span class='reason-list-number'>2</span>
         <h3 class='reason-list-text'>
-          <span class='reason-list-blue-text'>シンプル</span>
-          で使いやすい
+          <span class='reason-list-blue-text'>お店</span>
+          のムリ・ムダ・ムラ軽減！
         </h3>
         <p class='reason-list-description'>
-          めんどくさい入力は必要なく、検索も購入もスムーズ！
+          簡単投稿で時間も節約できます！
         </p>
       </li>
       <li class='list'>
-        <%= image_tag "furima-intro03.png", class:"list-pict" %>
+        <%= image_tag "nefuda_yasui.png", class:"list-pict" %>
         <span class='reason-list-number'>3</span>
         <h3 class='reason-list-text'>
-          手数料
-          <span class='reason-list-blue-text'>業界最安</span>
+          <span class='reason-list-blue-text'>お客様</span>
+          スペシャルプライスでご購入
         </h3>
-        <p class='reason-list-description'>
-          最大3%でお得に出品&購入！
-        </p>
       </li>
     </ul>
   </div>
-  <%# //FURIMAが選ばれる3つの理由部分 %>
+  <%# //MOTTAINAIが選ばれる3つの理由部分 %>
 
-  <%# 画面中央の「会員数日本一位」帯部分 %>
+  <%# 画面中央の「物が溢れる時代」帯部分 %>
   <div class='ad-contents'>
     <h2 class='ad-title'>
-      会員数日本一位
+      物が溢れる時代
     </h2>
     <p class='ad-explain'>
-      FURIMAは、フリマアプリで最も人気。
+      企業系の年間食品廃棄は1970万t、その内まだ食べれる分は352万t
     </p>
     <p class='ad-explain'>
-      出品・購入回数も業界最多です！
+      家庭での年間食品廃棄は789万t、その内まだ食べれる分は291万tもあります
     </p>
     <p class='ad-explain'>
-      ほしかったあの商品に出会えるかもしれません。
+      正しい消費社会を目指そう！！
     </p>
     <div class='store-btn'>
       <%= link_to image_tag("https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2011-09-21&kind=iossoftware&bubble=ios_apps", class:"apple-btn"), "#" %>
       <%= link_to image_tag("dl-android.png", class:"google-btn"), "#" %>
     </div>
   </div>
-  <%# //画面中央の「会員数日本一位」帯部分 %>
+  <%# //画面中央の「物が溢れる時代」帯部分 %>
 
-  <%# FURIMAの特徴 %>
+  <%# GOOGLE MAP %>
   <div class='feature-contents'>
     <h2 class='title'>
       近隣MAP
@@ -101,12 +106,23 @@
 
     <%#</ul>%>
   </div>
-  <%# //FURIMAの特徴 %>
+  <%# //GOOGLE MAP %>
 
   <%# 商品一覧 %>
   <div class='item-contents'>
-    <h2 class='title'>ピックアップカテゴリー</h2>
-    <%= link_to '新規投稿商品',"#" , class: "subtitle" %>
+    <h2 class='title'>出品されている商品一覧</h2>
+    <h3 class="subtitle" >現在まで取引で減少した資源は
+    <h2 class='title'>
+      <%array = []%>
+        <% @items.each do |item| %>
+          <% if item.purchase %>
+            <% array << item.weight.to_f %>
+          <% end %>
+        <% end %>
+      <%= array.sum%>kg
+    </h2>
+    </h3>
+    
     <ul class='item-lists'>
       <% if  @items.present? %> 
         <% @items.each do |item| %>
@@ -132,8 +148,7 @@
                 <div class='item-price'>
                   <span><%= item.price %>円<br>(税込み)</span>
                   <div class='star-btn'>
-                    <%= image_tag "star.png", class:"star-icon" %>
-                    <span class='star-count'>0</span>
+                    <span class='star-count'><%= item.exhibition.city%></span>
                   </div>
                 </div>
               </div>
@@ -144,16 +159,15 @@
       <% else %>
         <li class='list'>
           <%= link_to '#' do %>
-            <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "item-img" %>
+            <%= image_tag "sample.png", class: "item-img" %>
             <div class='item-info'>
               <h3 class='item-name'>
-                商品を出品してね！
+                まだ出品されていません
               </h3>
               <div class='item-price'>
                 <span>99999999円<br>(税込み)</span>
                 <div class='star-btn'>
-                  <%= image_tag "star.png", class:"star-icon" %>
-                  <span class='star-count'>0</span>
+                  <span class='star-count'>住所</span>
                 </div>
               </div>
             </div>
