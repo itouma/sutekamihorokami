@@ -67,7 +67,7 @@
   </div>
   <%# //MOTTAINAIが選ばれる3つの理由部分 %>
 
-  <%# 画面中央の「日本の食品年間ロス」帯部分 %>
+  <%# 画面中央の「物が溢れる時代」帯部分 %>
   <div class='ad-contents'>
     <h2 class='ad-title'>
       物が溢れる時代
@@ -86,9 +86,9 @@
       <%= link_to image_tag("dl-android.png", class:"google-btn"), "#" %>
     </div>
   </div>
-  <%# //画面中央の「会員数日本一位」帯部分 %>
+  <%# //画面中央の「物が溢れる時代」帯部分 %>
 
-  <%# FURIMAの特徴 %>
+  <%# GOOGLE MAP %>
   <div class='feature-contents'>
     <h2 class='title'>
       近隣MAP
@@ -106,12 +106,23 @@
 
     <%#</ul>%>
   </div>
-  <%# //FURIMAの特徴 %>
+  <%# //GOOGLE MAP %>
 
   <%# 商品一覧 %>
   <div class='item-contents'>
-    <h2 class='title'>ピックアップカテゴリー</h2>
-    <%= link_to '新規投稿商品',"#" , class: "subtitle" %>
+    <h2 class='title'>出品されている商品一覧</h2>
+    <h3 class="subtitle" >現在まで取引で減少した資源は
+    <h2 class='title'>
+      <%array = []%>
+        <% @items.each do |item| %>
+          <% if item.purchase %>
+            <% array << item.weight.to_f %>
+          <% end %>
+        <% end %>
+      <%= array.sum%>kg
+    </h2>
+    </h3>
+    
     <ul class='item-lists'>
       <% if  @items.present? %> 
         <% @items.each do |item| %>

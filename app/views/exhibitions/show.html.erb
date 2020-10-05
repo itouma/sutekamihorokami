@@ -1,7 +1,7 @@
 <%= render "shared/third-header"%>
 <div class='main'>
 
-  <%# 画面上部の「人生を変えるフリマアプリ」帯部分 %>
+  <%# 企業ごとに異なるページ %>
   <div class='exhibitions'>
     <h2 class='service-title'>
 
@@ -10,16 +10,16 @@
     <p class='service-explain'>
       
       <%= @exhibition.company_name %>
-      が抑えた食品ロスの重さは現在
-      <h1>
+      が抑えた食品ロスは現在
+      
       <%array = []%>
         <% @items.each do |item| %>
-          <% if !item.purchase %>
+          <% if item.purchase %>
             <% array << item.weight.to_f %>
           <% end %>
         <% end %>
       <%= array.sum%>kg
-      </h1>
+      
     </p>
     <% if exhibition_signed_in? && current_exhibition.id == @exhibition.id %>
       <p class='service-explain'>
@@ -48,9 +48,9 @@
     <% end %>
 
   </div>
-  <%# //画面上部の「人生を変えるフリマアプリ」帯部分  %>
+  <%# //企業ごとに異なるページ  %>
 
-  <%# FURIMAの特徴 %>
+  <%# <GOOGLE MAP> %>
   <div class='feature-contents'>
     <h2 class='title'>
       近隣MAP
@@ -68,9 +68,9 @@
 
     <%#</ul>%>
   </div>
-  <%# //FURIMAの特徴 %>
+  <%# //GOOGLE MAP %>
 
-  <%# 商品一覧 %>
+  <%# 出品一覧 %>
   <div class='item-contents'>
     <h2 class='title'>出品商品一覧</h2>
     <ul class='item-lists'>
@@ -82,13 +82,14 @@
               <div class='item-img-content'>
                 <%= image_tag item.image, class: "item-img" if item.image.attached? %>
 
-                <%# 商品が売れていればsold outの表示 %>
+                <%# 売れていればsold outの表示 %>
                 <% if item.purchase.present? %>
                   <div class='sold-out'>
                     <span>Sold Out!!</span>
                   </div>
                 <% end %>
-                <%# //商品が売れていればsold outの表示 %>
+                <%# //売れていればsold outの表示 %>
+                
               </div>
               <div class='item-info'>
                 <h3 class='item-name'>
@@ -104,14 +105,14 @@
             <% end %>
           </li>
         <%end%>
-          <%# 商品がない場合のダミー %>
+          <%# 出品ない場合 %>
       <% else %>
         <h2 style="color:red" >現在出品している商品はございません</h2>
       <% end %>
-              <%# //商品がない場合のダミー %>
+              <%# //出品ない場合 %>
     </ul>
   </div>
-  <%# //商品一覧 %>
+  <%# //出品一覧 %>
 </div>
 <% if exhibition_signed_in? && !customer_signed_in? %>
   <a href="/items/new" >

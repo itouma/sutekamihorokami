@@ -1,8 +1,7 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
-  <div class='top-title'>
-    MOTTINAI
-  </div>
+ <%= link_to "MOTTINAI", "/", class: "top-title"%>
+
   <div class='nav'>
     <% if exhibition_signed_in? && !customer_signed_in? %>
       <ul class='lists-left'>

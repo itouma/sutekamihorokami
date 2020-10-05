@@ -75,7 +75,7 @@ a {
 
 /* //画面上部の「人生を変えるフリマアプリ」帯部分 */
 
-/* FURIMAが選ばれる3つの理由部分 */
+/* MOTTAINAIが選ばれる3つの理由部分 */
 .select-reason-contents {
   padding: 5vh 15vw;
 }
@@ -147,7 +147,7 @@ a {
   margin-top: 20px;
 }
 
-/* //FURIMAが選ばれる3つの理由部分 */
+/* //MOTTAINAIが選ばれる3つの理由部分 */
 
 
 /* 画面中央の「会員数日本一位」帯部分*/
@@ -192,7 +192,7 @@ a {
 
 /* //画面中央の「会員数日本一位」帯部分 */
 
-/* FURIMAの特徴 */
+/* MOTTAINAIの特徴 */
 .feature-contents {
   padding: 5vh 15vw;
 }
@@ -244,7 +244,7 @@ a {
   height: 400px;
 }
 
-/* //FURIMAの特徴 */
+/* //MOTTAINAIの特徴 */
 
 /* 商品一覧 */
 
@@ -263,6 +263,14 @@ a {
 }
 
 .item-contents>.subtitle {
+  font-size: 3vh;
+  margin: 1vh 0;
+  text-decoration: none;
+  color: #3ccace;
+  font-weight: bold;
+}
+
+.weight{
   font-size: 3vh;
   margin: 1vh 0;
   text-decoration: none;
