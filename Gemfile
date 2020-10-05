@@ -68,3 +68,4 @@ gem 'rails-i18n'
 gem 'payjp'
 gem 'gon'
 gem 'geocoder'
+gem "aws-sdk-s3", require: false
