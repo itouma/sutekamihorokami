@@ -16,8 +16,8 @@
     phone_number: '22222222222',
     prefecture_id: '23',
     city: "東京都江戸川区平井#{n}丁目#{n}番",
-    city_number: 'ポッカサッポロ',
-    building_name: 'サントリー'
+    # city_number: 'ポッカサッポロ',
+    # building_name: 'サントリー'
   )
 end
 
