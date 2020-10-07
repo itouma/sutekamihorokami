@@ -7,7 +7,7 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
   geocoded_by :city
   after_validation :geocode
-  
+
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   # 半角英数字
   HIRAGANA_KATAKANA_REGEX = /\A(?:\p{Hiragana}|[ァ-ヶー－]|[ー－]|[一-龠々]|[０-９ａ-ｚＡ-Ｚ])+\z/.freeze
@@ -26,8 +26,8 @@ class Customer < ApplicationRecord
       validates :family_name_kana
     end
   end
-  validates :password, format: { with: PASSWORD_REGEX, message: 'Include both letters and numbers' } 
-  
+  validates :password, format: { with: PASSWORD_REGEX, message: 'Include both letters and numbers' }
+
   with_options presence: true do
     validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
     validates :phone_number, format:
@@ -37,5 +37,4 @@ class Customer < ApplicationRecord
   with_options presence: { message: 'Select' } do
     validates :prefecture_id, numericality: { greater_than: 0, message: 'Select' }
   end
-
 end

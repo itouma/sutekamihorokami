@@ -24,7 +24,7 @@ class Exhibitions::SessionsController < Devise::SessionsController
 
   def move_to_index
     if customer_signed_in?
-      #  && @customer.id == current_customer.id 
+      #  && @customer.id == current_customer.id
       redirect_to root_path
     end
   end

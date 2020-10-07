@@ -22,5 +22,4 @@ class Exhibition < ApplicationRecord
   with_options presence: { message: 'Select' } do
     validates :prefecture_id, numericality: { greater_than: 0, message: 'Select' }
   end
-
 end

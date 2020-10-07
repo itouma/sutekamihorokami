@@ -48,7 +48,7 @@ class Customers::RegistrationsController < Devise::RegistrationsController
 
   def move_to_index
     if exhibition_signed_in?
-      #  && @exhibition.id == current_exhibition.id 
+      #  && @exhibition.id == current_exhibition.id
       redirect_to root_path
     end
   end

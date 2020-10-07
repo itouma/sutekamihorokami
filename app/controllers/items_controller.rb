@@ -4,26 +4,26 @@ class ItemsController < ApplicationController
   before_action :authenticate_exhibition!
   skip_before_action :authenticate_exhibition!, only: [:index, :show]
   # before_action :move_to_index, except: [:index, :show]
-  #customer!もindexとshowと購入しかできないようにしたいから制限したいあっちで設定
+  # customer!もindexとshowと購入しかできないようにしたいから制限したいあっちで設定
   before_action :set_item, only: [:show, :destroy, :edit, :update]
 
   def index
     @items = Item.order('created_at DESC').includes(:exhibition)
     # gon.exhibition = current_exhibition
     # gon.customer = current_customer
-    if customer_signed_in?
-      gon.user = current_customer
-    elsif exhibition_signed_in?
-      gon.user = current_exhibition
-    else
-      gon.user = Customer.new(latitude: 35.681236, longitude: 139.767125)
-    end
+    gon.user = if customer_signed_in?
+                 current_customer
+               elsif exhibition_signed_in?
+                 current_exhibition
+               else
+                 Customer.new(latitude: 35.681236, longitude: 139.767125)
+               end
   end
 
   def new
     @item = Item.new
   end
-  
+
   def create
     @item = Item.new(item_params)
     if @item.save
@@ -37,8 +37,8 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if exhibition_signed_in? &&current_exhibition.id == @item.exhibition.id && @item.update(item_params)
-      redirect_to root_path      
+    if exhibition_signed_in? && current_exhibition.id == @item.exhibition.id && @item.update(item_params)
+      redirect_to root_path
     else
       render :edit
     end
@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if exhibition_signed_in? &&current_exhibition.id == @item.exhibition.id
+    if exhibition_signed_in? && current_exhibition.id == @item.exhibition.id
       @item.delete
       redirect_to root_path
     else
@@ -59,17 +59,16 @@ class ItemsController < ApplicationController
   private
 
   # def move_to_index
-  #   if customer_signed_in? && @customer.id == current_customer.id 
+  #   if customer_signed_in? && @customer.id == current_customer.id
   #     redirect_to action: :index
   #   end
   # end
 
   def item_params
-    params.require(:item).permit(:image, :name, :text, :category_id, :price, :exhibition_id, :item_status_id,:cost, :weight).merge(exhibition_id: current_exhibition.id)
+    params.require(:item).permit(:image, :name, :text, :category_id, :price, :exhibition_id, :item_status_id, :cost, :weight).merge(exhibition_id: current_exhibition.id)
   end
 
   def set_item
-    @item =Item.find(params[:id])
+    @item = Item.find(params[:id])
   end
-
 end

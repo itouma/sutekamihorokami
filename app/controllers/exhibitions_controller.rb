@@ -10,13 +10,11 @@ class ExhibitionsController < ApplicationController
     gon.user = @exhibition
   end
 
-  # @exhibition 
-
+  # @exhibition
 
   private
 
   def set_exhibitions
-    @exhibition =Exhibition.find(params[:id])
+    @exhibition = Exhibition.find(params[:id])
   end
-
 end

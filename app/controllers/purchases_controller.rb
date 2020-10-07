@@ -1,17 +1,16 @@
 class PurchasesController < ApplicationController
   before_action :authenticate_customer!
-  before_action :set_item, only: [:index, :create,:pay_item]
+  before_action :set_item, only: [:index, :create, :pay_item]
   def index
     if @item.purchase.present? || exhibition_signed_in?
-      redirect_to root_path 
+      redirect_to root_path
     else
-      @detail =PurchaseDetail.new
+      @detail = PurchaseDetail.new
     end
-
   end
 
   def create
-    @detail =PurchaseDetail.new(detail_params)
+    @detail = PurchaseDetail.new(detail_params)
     if @detail.valid?
       pay_item
       @detail.save
@@ -38,7 +37,5 @@ class PurchasesController < ApplicationController
 
   def detail_params
     params.require(:purchase_detail).permit(:deatailday).merge(customer_id: current_customer.id, item_id: @item.id, token: params[:token])
-    
   end
 end
-
