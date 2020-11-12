@@ -9,6 +9,7 @@
         
           <%= link_to current_exhibition.company_name, "/exhibitions/#{current_exhibition.id}", class: "login-ex"%>
         </li>
+        
         <li>
           <%= link_to 'ログアウト', destroy_exhibition_session_path, method: :delete, class: "sign-up-ex"  %>
         </li>
